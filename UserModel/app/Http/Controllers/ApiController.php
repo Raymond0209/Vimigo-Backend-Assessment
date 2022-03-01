@@ -39,11 +39,6 @@ class ApiController extends Controller
             return response()->json(['error' => 'Wrong Login Information'], 401);
         }
     }
- 
-    public function userInfo(User $user) 
-    {
-        return new UsersResource($user);
-    }
 
     public function users(User $user)
     {
@@ -53,6 +48,13 @@ class ApiController extends Controller
         return UsersResource::collection($userList);
 
     }
+    
+    public function userInfo(User $user) 
+    {
+        return new UsersResource($user);
+    }
+
+
 
     public function addUser(RegisterRequest $request)
     {
